@@ -8,7 +8,11 @@ class App extends React.Component {
         this.state = {
             list: [],
             inputValue: ''
-        }
+        };
+
+        this.handleInputValue = this.handleInputValue.bind(this);
+        this.handleBtnClick = this.handleBtnClick.bind(this);
+        this.handleItemClick = this.handleItemClick.bind(this);
     }
 
     handleBtnClick() {
@@ -30,20 +34,25 @@ class App extends React.Component {
         this.setState({list});
     }
 
+    getItems() {
+        return this.state.list.map((item, index) => {
+            return (
+                <Item key={index}
+                      index={index}
+                      content={item}
+                      handleDelete={this.handleItemClick}/>
+            )
+        });
+    }
+
     render() {
         return (
             <div>
                 <div>
-                    <input type="text" value={this.state.inputValue} onChange={this.handleInputValue.bind(this)}/>
-                    <button onClick={this.handleBtnClick.bind(this)}>add</button>
+                    <input type="text" value={this.state.inputValue} onChange={this.handleInputValue}/>
+                    <button onClick={this.handleBtnClick}>add</button>
                 </div>
-                <ul>
-                    {
-                        this.state.list.map((item, index) => {
-                            return <Item key={index} index={index} content={item} delete={this.handleItemClick.bind(this, index)} />
-                        })
-                    }
-                </ul>
+                <ul>{this.getItems()}</ul>
             </div>
         );
     }

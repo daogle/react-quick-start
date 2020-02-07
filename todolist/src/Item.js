@@ -2,11 +2,21 @@ import React from "react";
 
 export default class Item extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.handleDeleteItem = this.handleDeleteItem.bind(this);
+    }
+
     handleDeleteItem() {
-        this.props.delete(this.props.index)
+        const {handleDelete, index} = this.props;
+        handleDelete(index)
     }
 
     render() {
-        return <li onClick={this.handleDeleteItem.bind(this)}>{this.props.content}</li>;
+        const {content} = this.props;
+        return (
+            <li onClick={this.handleDeleteItem}>{content}</li>
+        );
     }
 }
