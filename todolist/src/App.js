@@ -1,4 +1,5 @@
 import React from 'react';
+import Item from "./Item";
 
 class App extends React.Component {
 
@@ -39,7 +40,7 @@ class App extends React.Component {
                 <ul>
                     {
                         this.state.list.map((item, index) => {
-                            return <li key={index} onClick={this.handleItemClick.bind(this, index)}>{item}</li>
+                            return <Item key={index} index={index} content={item} delete={this.handleItemClick.bind(this, index)} />
                         })
                     }
                 </ul>
