@@ -44,7 +44,7 @@ npx create-react-app todolist
 
 精简之后的目录结构：
 
-
+![image-20200207154616013](images/image-20200207154616013.png)
 
 ##### 1-4 什么是组件？
 ##### 1-5 简单的JSX语法
