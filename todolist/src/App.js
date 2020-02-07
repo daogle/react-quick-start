@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component, Fragment} from 'react';
 import Item from "./Item";
 
-class App extends React.Component {
+class App extends Component {
 
     constructor(props) {
         super(props);
@@ -47,13 +47,13 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <Fragment>
                 <div>
                     <input type="text" value={this.state.inputValue} onChange={this.handleInputValue}/>
                     <button onClick={this.handleBtnClick}>add</button>
                 </div>
                 <ul>{this.getItems()}</ul>
-            </div>
+            </Fragment>
         );
     }
 }
